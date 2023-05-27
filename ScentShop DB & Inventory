@@ -1,0 +1,33 @@
+--Created database for a local scent shop
+
+CREATE TABLE ScentShop
+(id INTEGER PRIMARY KEY, brand text, name text, price integer, rating integer, quanity integer);
+
+INSERT INTO ScentShop VALUES
+(1, "Creed", "Aventus", 495, 4.4, 40),
+(2, "Creed", "Green irish tweed", 470, 4.3, 30),
+(3, "Tom Ford", "Grey vetiver", 150, 4.3, 20),
+(4, "Hermes", "Terr D'Hermes", 350, 4.5, 13),
+(5, "Zadig & Voltair", "This is him!", 54.99, 4.1, 8),
+(6, "Dior", "Homme Intense 2011", 129.99, 4.5, 15),
+(8, "Dior", "Sauvage", 230, 3.9, 40),
+(9, "Viktor&Rolf", "Spice Bmb Extreme", 134, 4.52, 15),
+(10, "Giorgio Armani", "Acqua di Gio Profumo Special Blend", 500, 4.3, 2),
+(11, "Versace", "Eros Flame", 120, 4.15, 11),
+(12, "Parfums de Marly", "Herod", 350, 4.46, 15),
+(13, "Chanel", "Allure Homme Sport Eau Extreme", 94.99, 4.33, 10),
+(14, "Chanel", "Bleu de Chanel Eau de Parfum", 165, 4.4, 30),
+(15, "Maison Margiela", "Jazz club", 132.99, 4.18, 5);
+
+--displays the total inventory
+SELECT * FROM ScentShop;
+
+--What is the brand, name, and rating of colognes in the shop, ordered by rating?
+SELECT name,rating
+FROM ScentShop GROUP BY rating ORDER BY rating desc;
+
+--What is the highest rated colognes available for under $200?
+SELECT brand,name,price,rating FROM ScentShop
+WHERE price <=200
+AND rating >=4
+ORDER BY rating desc;
